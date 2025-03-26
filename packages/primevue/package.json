@@ -352,11 +352,11 @@
         "vitest": "^0.29.8"
     },
     "dependencies": {
-        "@primeuix/styled": "catalog:",
-        "@primeuix/utils": "catalog:",
-        "@primeuix/styles": "catalog:",
-        "@primevue/core": "workspace:*",
-        "@primevue/icons": "workspace:*"
+        "@primeuix/styled": "^0.5.0",
+        "@primeuix/utils": "^0.5.1",
+        "@primeuix/styles": "^1.0.0",
+        "@primevue/core": "4.3.3",
+        "@primevue/icons": "4.3.3"
     },
     "engines": {
         "node": ">=12.11.0"
