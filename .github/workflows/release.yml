@@ -16,12 +16,12 @@ jobs:
                   node-version: '22.x'
                   registry-url: 'https://npm.pkg.github.com'
             - name: Build
-              working_directory: './packages/primevue'
+              working-directory: './packages/primevue'
               run: |
                 pnpm install
                 pnpm run build
             - name: Publish
-              working_directory: './packages/primevue'
+              working-directory: './packages/primevue'
               run: npm publish
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
