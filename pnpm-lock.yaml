@@ -34,9 +34,6 @@ catalogs:
     '@primeuix/styled':
       specifier: ^0.5.0
       version: 0.5.0
-    '@primeuix/styles':
-      specifier: ^1.0.0
-      version: 1.0.0
     '@primeuix/themes':
       specifier: ^1.0.0
       version: 1.0.0
@@ -77,7 +74,7 @@ importers:
         version: 10.1.1(eslint@9.23.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.2.3
-        version: 5.2.5(eslint-config-prettier@10.1.1(eslint@9.23.0(jiti@2.4.2)))(eslint@9.23.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.2.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.1(eslint@9.23.0(jiti@2.4.2)))(eslint@9.23.0(jiti@2.4.2))(prettier@3.5.3)
       eslint-plugin-vue:
         specifier: ^9.32.0
         version: 9.33.0(eslint@9.23.0(jiti@2.4.2))
@@ -102,6 +99,9 @@ importers:
 
   apps/showcase:
     dependencies:
+      '@davidskula/primevue':
+        specifier: workspace:*
+        version: link:../../packages/primevue
       '@docsearch/js':
         specifier: catalog:app
         version: 3.9.0(@algolia/client-search@5.23.0)(search-insights@2.17.3)
@@ -123,9 +123,6 @@ importers:
       primeicons:
         specifier: 'catalog:'
         version: 7.0.0
-      primevue:
-        specifier: workspace:*
-        version: link:../../packages/primevue
       quill:
         specifier: catalog:app
         version: 2.0.0
@@ -178,6 +175,9 @@ importers:
 
   apps/volt:
     dependencies:
+      '@davidskula/primevue':
+        specifier: workspace:*
+        version: link:../../packages/primevue
       '@docsearch/js':
         specifier: catalog:app
         version: 3.9.0(@algolia/client-search@5.23.0)(search-insights@2.17.3)
@@ -187,9 +187,6 @@ importers:
       primeicons:
         specifier: 'catalog:'
         version: 7.0.0
-      primevue:
-        specifier: workspace:*
-        version: link:../../packages/primevue
       quill:
         specifier: catalog:app
         version: 2.0.0
@@ -293,6 +290,9 @@ importers:
 
   packages/nuxt-module:
     dependencies:
+      '@davidskula/primevue':
+        specifier: workspace:*
+        version: link:../primevue
       '@nuxt/kit':
         specifier: ^3
         version: 3.16.1(magicast@0.3.5)
@@ -311,9 +311,6 @@ importers:
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
-      primevue:
-        specifier: workspace:*
-        version: link:../primevue
       unplugin-vue-components:
         specifier: 28.4.1
         version: 28.4.1(@babel/parser@7.27.0)(@nuxt/kit@3.16.1(magicast@0.3.5))(vue@3.5.13(typescript@5.7.3))
@@ -355,20 +352,20 @@ importers:
   packages/primevue:
     dependencies:
       '@primeuix/styled':
-        specifier: 'catalog:'
+        specifier: ^0.5.0
         version: 0.5.0
       '@primeuix/styles':
-        specifier: 'catalog:'
+        specifier: ^1.0.0
         version: 1.0.0
       '@primeuix/utils':
-        specifier: 'catalog:'
+        specifier: ^0.5.1
         version: 0.5.2
       '@primevue/core':
-        specifier: workspace:*
-        version: link:../core
+        specifier: 4.3.3
+        version: 4.3.3(vue@3.5.13(typescript@5.7.3))
       '@primevue/icons':
-        specifier: workspace:*
-        version: link:../icons
+        specifier: 4.3.3
+        version: 4.3.3(vue@3.5.13(typescript@5.7.3))
     devDependencies:
       '@vue/test-utils':
         specifier: ^2.0.0
@@ -2011,6 +2008,16 @@ packages:
 
   '@primeuix/utils@0.5.2':
     resolution: {integrity: sha512-fHL0DGnyhL/9toBoV0cO6L+Xg/uaxmOHJW4SrDNMq6GQ7cDXR3Y0vDLvX5j/8kIsaC7LB3329sQLNHgtEETnWw==}
+    engines: {node: '>=12.11.0'}
+
+  '@primevue/core@4.3.3':
+    resolution: {integrity: sha512-kSkN5oourG7eueoFPIqiNX3oDT/f0I5IRK3uOY/ytz+VzTZp5yuaCN0Nt42ZQpVXjDxMxDvUhIdaXVrjr58NhQ==}
+    engines: {node: '>=12.11.0'}
+    peerDependencies:
+      vue: ^3.5.0
+
+  '@primevue/icons@4.3.3':
+    resolution: {integrity: sha512-ouQaxHyeFB6MSfEGGbjaK5Qv9efS1xZGetZoU5jcPm090MSYLFtroP1CuK3lZZAQals06TZ6T6qcoNukSHpK5w==}
     engines: {node: '>=12.11.0'}
 
   '@rollup/plugin-alias@5.1.1':
@@ -8975,6 +8982,19 @@ snapshots:
 
   '@primeuix/utils@0.5.2': {}
 
+  '@primevue/core@4.3.3(vue@3.5.13(typescript@5.7.3))':
+    dependencies:
+      '@primeuix/styled': 0.5.0
+      '@primeuix/utils': 0.5.2
+      vue: 3.5.13(typescript@5.7.3)
+
+  '@primevue/icons@4.3.3(vue@3.5.13(typescript@5.7.3))':
+    dependencies:
+      '@primeuix/utils': 0.5.2
+      '@primevue/core': 4.3.3(vue@3.5.13(typescript@5.7.3))
+    transitivePeerDependencies:
+      - vue
+
   '@rollup/plugin-alias@5.1.1(rollup@3.29.5)':
     optionalDependencies:
       rollup: 3.29.5
@@ -10868,13 +10888,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-prettier@5.2.5(eslint-config-prettier@10.1.1(eslint@9.23.0(jiti@2.4.2)))(eslint@9.23.0(jiti@2.4.2))(prettier@3.5.3):
+  eslint-plugin-prettier@5.2.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.1(eslint@9.23.0(jiti@2.4.2)))(eslint@9.23.0(jiti@2.4.2))(prettier@3.5.3):
     dependencies:
       eslint: 9.23.0(jiti@2.4.2)
       prettier: 3.5.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.10.3
     optionalDependencies:
+      '@types/eslint': 9.6.1
       eslint-config-prettier: 10.1.1(eslint@9.23.0(jiti@2.4.2))
 
   eslint-plugin-regexp@2.7.0(eslint@9.23.0(jiti@2.4.2)):
