@@ -1001,9 +1001,10 @@ export default {
             return this.$filled;
         },
         label() {
-            const selectedOptionIndex = this.findSelectedOptionIndex();
-
-            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.placeholder || 'p-emptylabel';
+            const selectedOptionIndex = this.$filled ? this.options.findIndex((option) => this.isValidSelectedOption(option)) : -1;
+            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.options[selectedOptionIndex]) : this.placeholder || 'p-emptylabel';
+            // const selectedOptionIndex = this.findSelectedOptionIndex();
+            // return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.placeholder || 'p-emptylabel';
         },
         editableInputValue() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
